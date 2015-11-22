@@ -695,4 +695,13 @@ ${1:${VISUAL:doc}}
 `!p snip.rv = triple_quotes(snip)`
 endsnippet
 
+snippet mset
+def set`!p snip.rv = ''.join(s[0].upper() + s[1:] for s in t[1].split(' ')) if t[1] != '' else ""`(self, ${1:var}):
+	self.$1 = $1;
+endsnippet
+
+snippet mget
+def get`!p snip.rv = ''.join(s[0].upper() + s[1:] for s in t[1].split(' ')) if t[1] != '' else ""`(self):
+	return self.${1:var}
+endsnippet
 # vim:ft=snippets:

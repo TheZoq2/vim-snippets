@@ -54,4 +54,26 @@ snippet tp "template <typename ..> (template)"
 template <typename ${1:_InputIter}>
 endsnippet
 
+#${4:void} ${3:`!p snip.rv = snip.basename or "name"`}::set`!p snip.rv = ''.join(s[0].upper() + s[1:] for s in t[2].split(' ')) if t[2] == '' else snip.rv = ''`(${1:int} ${2:var})
+snippet mset
+${4:void} ${3:`!p snip.rv = snip.basename or "name"`}::set`!p 
+if t[2] != '':
+	snip.rv = (''.join(s[0].upper() + s[1:] for s in t[2].split(' '))); 
+else:
+	snip.rv = ''`(${1:int} ${2:var})
+{
+	this->$2 = $2;
+}
+endsnippet
+snippet mget
+${3:int} ${4:`!p snip.rv = snip.basename or "name"`}::get`!p 
+if t[2] != '':
+	snip.rv = (''.join(s[0].upper() + s[1:] for s in t[2].split(' '))); 
+else:
+	snip.rv = ''`()
+{
+	return ${2};
+}
+endsnippet
+
 # vim:ft=snippets:
