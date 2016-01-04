@@ -22,9 +22,6 @@ snippet set
 # std::map
 snippet map
 	std::map<${1:Key}, ${2:T}> ${3};
-# std::multiset
-snippet mset
-	std::multiset<${1:T}> ${2};
 # std::multimap
 snippet mmap
 	std::multimap<${1:Key}, ${2:T}> ${3};
@@ -85,6 +82,16 @@ snippet mfun
 	{
 		${0}
 	}
+
+#Setter function implementation
+snippet mset
+	void ${4:`vim_snippets#Filename('$1', 'ClassName')`}::set(${1}, ${2}) 
+	{
+		${1/\w+\s*/\u$0/g}
+
+		this->${2} = ${2};
+	}
+
 # namespace
 snippet ns
 	namespace ${1:`vim_snippets#Filename('', 'my')`} 
