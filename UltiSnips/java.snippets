@@ -94,14 +94,16 @@ endsnippet
 
 snippet cle "class extends" b
 public class ${1:`!p
-snip.rv = snip.basename or "untitled"`} ${2:extends ${3:Parent} }${4:implements ${5:Interface} }{
+snip.rv = snip.basename or "untitled"`} ${2:extends ${3:Parent} }${4:implements ${5:Interface} }
+{
 	$0
 }
 endsnippet
 
 snippet clc "class with constructor, fields, setter and getters" b
 public class `!p
-snip.rv = snip.basename or "untitled"` {
+snip.rv = snip.basename or "untitled"` 
+{
 `!p
 args = getArgs(t[1])
 if len(args) == 0: snip.rv = ""
@@ -131,7 +133,8 @@ endsnippet
 
 snippet clc "class with constructor, with field names" b
 public class `!p
-snip.rv = snip.basename or "untitled"` {
+snip.rv = snip.basename or "untitled"` 
+{
 `!p
 args = getArgs(t[1])
 for i in args:
@@ -150,7 +153,8 @@ endsnippet
 
 snippet clc "class and constructor" b
 public class `!p
-snip.rv = snip.basename or "untitled"` {
+snip.rv = snip.basename or "untitled"` 
+{
 
 	public `!p snip.rv = snip.basename or "untitled"`($2) {
 		$0
@@ -160,7 +164,8 @@ endsnippet
 
 snippet cl "class" b
 public class ${1:`!p
-snip.rv = snip.basename or "untitled"`} {
+snip.rv = snip.basename or "untitled"`} 
+{
 	$0
 }
 endsnippet
@@ -179,13 +184,15 @@ default:
 endsnippet
 
 snippet elif "else if"
-else if ($1)`!p nl(snip)`{
+else if ($1)`!p nl(snip)`
+{
 	$0${VISUAL}
 }
 endsnippet
 
 snippet el "else" w
-else`!p nl(snip)`{
+else`!p nl(snip)`
+{
 	$0${VISUAL}
 }
 endsnippet
@@ -195,25 +202,29 @@ final $0
 endsnippet
 
 snippet fore "for (each)" b
-for ($1 : $2)`!p nl(snip)`{
+for ($1 : $2)`!p nl(snip)`
+{
 	$0
 }
 endsnippet
 
 snippet fori "for" b
-for (int ${1:i} = 0; $1 < ${2:10}; $1++)`!p nl(snip)`{
+for (int ${1:i} = 0; $1 < ${2:10}; $1++)`!p nl(snip)`
+{
 	$0
 }
 endsnippet
 
 snippet for "for" b
-for ($1; $2; $3)`!p nl(snip)`{
+for ($1; $2; $3)`!p nl(snip)`
+{
 	$0
 }
 endsnippet
 
 snippet if "if" b
-if ($1)`!p nl(snip)`{
+if ($1)`!p nl(snip)`
+{
 	$0${VISUAL}
 }
 endsnippet
@@ -228,7 +239,8 @@ import ${1:java}.${2:util}.$0;
 endsnippet
 
 snippet in "interface" b
-interface ${1:`!p snip.rv = snip.basename or "untitled"`} ${2:extends ${3:Parent} }{
+interface ${1:`!p snip.rv = snip.basename or "untitled"`} ${2:extends ${3:Parent} }
+{
 	$0
 }
 endsnippet
@@ -254,7 +266,8 @@ String $0
 endsnippet
 
 snippet cn "Constructor" b
-public `!p snip.rv = snip.basename or "untitled"`(${1:}) {
+public `!p snip.rv = snip.basename or "untitled"`(${1:}) 
+{
 	$0
 }
 endsnippet
@@ -295,28 +308,38 @@ snippet j.u "java_util_"  i
 java.util.
 endsnippet
 
+snippet syso "System_out_"
+	System.out
+endsnippet
+
 snippet main "method (main)" b
-public static void main(String[] args)`!p nl(snip)`{
+public static void main(String[] args)`!p nl(snip)`
+{
 	$0
 }
 endsnippet
 
 snippet try "try/catch" b
-try {
+try 
+{
 	$1${VISUAL}
-} catch(${2:Exception} ${3:e}){
+}
+catch(${2:Exception} ${3:e})
+{
 	${4:e.printStackTrace();}
 }
 endsnippet
 
 snippet mt "method throws" b
-${1:private} ${2:void} ${3:method}(${4}) ${5:throws $6 }{
+${1:private} ${2:void} ${3:method}(${4}) ${5:throws $6 }
+{
 	$0
 }
 endsnippet
 
 snippet m  "method" b
-${1:private} ${2:void} ${3:method}(${4}) {
+${1:private} ${2:void} ${3:method}(${4}) 
+{
 	$0
 }
 endsnippet
@@ -336,29 +359,34 @@ if not "void" in t[2]:
 else:
 	snip.rv = ""`
  **/
-${1:public} ${2:void} ${3:method}($4) ${5:throws $6 }{
+${1:public} ${2:void} ${3:method}($4) ${5:throws $6 }
+{
 	$0
 }
 endsnippet
 
 snippet /get(ter)?/ "getter" br
-public ${1:String} get${2:Name}() {
+public ${1:String} get${2:Name}() 
+{
 	return `!p snip.rv = mixedCase(t[2])`;
 }
 endsnippet
 
 snippet /set(ter)?/ "setter" br
-public void set${1:Name}(${2:String} `!p snip.rv = mixedCase(t[1])`) {
+public void set${1:Name}(${2:String} `!p snip.rv = mixedCase(t[1])`) 
+{
 	this.`!p snip.rv = mixedCase(t[1])` = `!p snip.rv = mixedCase(t[1])`;
 }
 endsnippet
 
 snippet /se?tge?t|ge?tse?t|gs/ "setter and getter" br
-public void set${1:Name}(${2:String} `!p snip.rv = mixedCase(t[1])`) {
+public void set${1:Name}(${2:String} `!p snip.rv = mixedCase(t[1])`) 
+{
 	this.`!p snip.rv = mixedCase(t[1])` = `!p snip.rv = mixedCase(t[1])`;
 }
 
-public $2 get$1() {
+public $2 get$1() 
+{
 	return `!p snip.rv = mixedCase(t[1])`;
 }
 endsnippet
@@ -406,19 +434,22 @@ synchronized $0
 endsnippet
 
 snippet tc "test case"
-public class ${1:`!p snip.rv = snip.basename or "untitled"`} extends ${2:TestCase}`!p nl(snip)`{
+public class ${1:`!p snip.rv = snip.basename or "untitled"`} extends ${2:TestCase}`!p nl(snip)`
+{
 	$0
 }
 endsnippet
 
 snippet t "test" b
-`!p junit(snip)`public void test${1:Name}() {
+`!p junit(snip)`public void test${1:Name}() 
+{
 	$0
 }
 endsnippet
 
 snippet tt "test throws" b
-`!p junit(snip)`public void test${1:Name}() ${2:throws Exception }{
+`!p junit(snip)`public void test${1:Name}() ${2:throws Exception }
+{
 	$0
 }
 endsnippet
@@ -428,7 +459,8 @@ throw new $0
 endsnippet
 
 snippet wh "while" b
-while ($1)`!p nl(snip)`{
+while ($1)`!p nl(snip)`
+{
 	$0
 }
 endsnippet
