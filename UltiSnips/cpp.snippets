@@ -64,6 +64,7 @@ else:
 	this->$2 = $2;
 }
 endsnippet
+
 snippet mget
 ${3:int} ${4:`!p snip.rv = snip.basename or "name"`}::get`!p 
 if t[2] != '':
@@ -72,6 +73,14 @@ else:
 	snip.rv = ''`()
 {
 	return ${2};
+}
+endsnippet
+
+snippet mtemp
+template<class ${6:T}>
+${4:void} ${5:`!p snip.rv = snip.basename or "name"`}<$6>::${1:func}(${2:param})
+{
+	$3
 }
 endsnippet
 
