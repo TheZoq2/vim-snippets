@@ -1,0 +1,35 @@
+snippet asgn "Signal assignment" b
+${1} <= ${2}
+endsnippet
+
+snippet signal "signal defentition" b
+signal ${1}: ${2};
+endsnippet
+
+snippet unsigned "Unsigned" 
+unsigned(${1} downto ${2:0})
+endsnippet
+
+snippet stv "std_logic_vector" 
+std_logic_vector(${1} downto ${2:0})
+endsnippet
+
+snippet comp "Component declaration" b
+component $1 is
+	port(
+		$2
+	);
+end component;
+endsnippet
+
+snippet portmap "Port map declaration"
+$1 : $2 port map (
+		$3
+	);
+endsnippet
+
+snippet port "in/out signal to component"
+$1 : ${2:out} $3;
+endsnippet
+
+
