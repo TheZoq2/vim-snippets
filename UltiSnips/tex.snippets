@@ -119,3 +119,48 @@ snippet lp "Long parenthesis"
 \left(${1:${VISUAL:contents}}\right)$0
 endsnippet
 # vim:ft=snippets:
+
+snippet U "Union"
+\cup
+endsnippet
+snippet cu "Cut"
+\cap
+endsnippet
+
+snippet * "cdot"
+\cdot
+endsnippet
+
+snippet div "\frac{}{}"
+\frac{${1}\}{${2}}
+endsnippet
+
+snippet eq "\[\]"
+\\[$1\\]
+endsnippet
+snippet ieq "\(\)"
+\($1\)
+endsnippet
+
+snippet => "\geq"
+\geq
+endsnippet
+snippet <= "\leq"
+\leq
+endsnippet
+
+snippet _ "\underline"
+\underline{${0}}
+endsnippet
+
+snippet subscr "subscript"
+${1:X}_${2:n}
+endsnippet
+
+snippet mbold "Math bold"
+\mathbf{${1}}
+endsnippet
+
+snippet integral "Integral" 
+\int_{$1}^{${2}} $3
+endsnippet
