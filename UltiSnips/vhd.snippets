@@ -2,12 +2,15 @@ snippet asgn "Signal assignment" b
 ${1} <= ${2}
 endsnippet
 
-snippet signal "signal defentition" b
+snippet sig "signal defentition" b
 signal ${1}: ${2};
 endsnippet
 
-snippet unsigned "Unsigned" 
+snippet unsig "Unsigned" 
 unsigned(${1} downto ${2:0})
+endsnippet
+snippet signed "Signed" 
+signed(${1} downto ${2:0})
 endsnippet
 
 snippet stv "std_logic_vector" 
@@ -32,4 +35,8 @@ snippet port "in/out signal to component"
 $1 : ${2:out} $3;
 endsnippet
 
-
+snippet if "If statement" 
+if $1 then
+	$2
+end if;
+endsnippet
