@@ -4,6 +4,13 @@
 
 priority -50
 
+snippet main "main function"
+pub fn main()
+{
+	$1
+}
+endsnippet
+
 snippet let "let variable declaration" b
 let ${1:name}${2:: ${3:type}} = ${4};
 endsnippet
@@ -13,21 +20,21 @@ let mut ${1:name}${2:: ${3:type}} = ${4};
 endsnippet
 
 snippet fn "A function, optionally with arguments and return type."
-fn ${1:function_name}(${2})${3/..*/ -> /}${3} 
+fn ${1:function_name}(${2})${3/..*/ -> /}${3}
 {
 	${VISUAL}${0}
 }
 endsnippet
 
 snippet pfn "A public function, optionally with arguments and return type."
-pub fn ${1:function_name}(${2})${3/..*/ -> /}${3} 
+pub fn ${1:function_name}(${2})${3/..*/ -> /}${3}
 {
 	${VISUAL}${0}
 }
 endsnippet
 
 snippet pmem "A public function, optionally with arguments and return type."
-pub fn ${1:function_name}(${2}self, ${3})${4/..*/ -> /}${4} 
+pub fn ${1:function_name}(${2}self${3/..*/, /}${3})${4/..*/ -> /}${4}
 {
 	${VISUAL}${0}
 }
@@ -42,7 +49,7 @@ ${1:move }|${2}| { $3 }
 endsnippet
 
 snippet |} "Closure, anonymous function (block)" i
-${1:move }|${2}| 
+${1:move }|${2}|
 {
 	$3
 }
@@ -69,14 +76,14 @@ macro_rules! ${1:name} (
 endsnippet
 
 snippet mod "A module" b
-mod ${1:`!p snip.rv = snip.basename.lower() or "name"`} 
+mod ${1:`!p snip.rv = snip.basename.lower() or "name"`}
 {
 	${VISUAL}${0}
 }
 endsnippet
 
 snippet for "for .. in .." b
-for ${1:i} in ${2} 
+for ${1:i} in ${2}
 {
 	${VISUAL}${0}
 }
@@ -95,6 +102,13 @@ endsnippet
 
 snippet const "constant variable"
 const ${1:var}: ${2:i32} = ${3:0};
+endsnippet
+
+snippet match "match statmenet"
+match $1
+{
+	$2
+}
 endsnippet
 
 ############################################################################
@@ -125,14 +139,14 @@ endsnippet
 ############################################################################
 
 snippet struct "Struct" b
-struct ${1:`!p snip.rv = snip.basename.title() or "Name"`} 
+struct ${1:`!p snip.rv = snip.basename.title() or "Name"`}
 {
 	${VISUAL}${0}
 }
 endsnippet
 
 snippet pstruct "Struct" b
-pub struct ${1:`!p snip.rv = snip.basename.title() or "Name"`} 
+pub struct ${1:`!p snip.rv = snip.basename.title() or "Name"`}
 {
 	${VISUAL}${0}
 }
@@ -140,14 +154,14 @@ endsnippet
 
 # TODO: fancy dynamic field mirroring like Python slotclass
 snippet structn "Struct with new constructor." b
-pub struct ${1:`!p snip.rv = snip.basename.title() or "Name"`} 
+pub struct ${1:`!p snip.rv = snip.basename.title() or "Name"`}
 {
 	fd${0}
 }
 
-impl $1 
+impl $1
 {
-	pub fn new(${2}) -> $1 
+	pub fn new(${2}) -> $1
 	{
 		$1 { ${3} };
 	}
@@ -159,7 +173,7 @@ ${1:name}: ${2:Type},
 endsnippet
 
 snippet impl "Struct/Trait implementation" b
-impl ${1:Type/Trait}${2: for ${3:Type}} 
+impl ${1:Type/Trait}${2: for ${3:Type}}
 {
 	${0}
 }
@@ -168,7 +182,7 @@ endsnippet
 
 
 snippet new "Constructor function"
-pub fn new(${2}) -> ${1:Name} 
+pub fn new(${2}) -> ${1:Name}
 {
 	$1 {
 		${3}
@@ -176,14 +190,29 @@ pub fn new(${2}) -> ${1:Name}
 }
 endsnippet
 
+snippet trait "Trait defenition"
+trait ${1:Name}
+{
+	${0}
+}
+endsnippet
+
+snippet tfn "Trait function declaration"
+fn ${1:function_name}(${2}self, ${3})${4/..*/ -> /}${4}
+endsnippet
+
+
+snippet ecr "External crate"
+extern crate $1;
+endsnippet
 
 ############################################################################
 #					Setters and getters
 ############################################################################
 snippet mset
-pub fn set_`!p 
+pub fn set_`!p
 if t[2] != '':
-	snip.rv = (''.join(s[0].lower() + s[1:] for s in t[2].split(' '))); 
+	snip.rv = (''.join(s[0].lower() + s[1:] for s in t[2].split(' ')));
 else:
 	snip.rv = ''`(&mut self, ${2:var}: ${3})
 {
@@ -191,9 +220,9 @@ else:
 }
 endsnippet
 snippet mget
-pub fn get_`!p 
+pub fn get_`!p
 if t[2] != '':
-	snip.rv = (''.join(s[0].lower() + s[1:] for s in t[2].split(' '))); 
+	snip.rv = (''.join(s[0].lower() + s[1:] for s in t[2].split(' ')));
 else:
 	snip.rv = ''`(&self) -> ${1:f32}
 {
@@ -213,9 +242,6 @@ pub fn get_$2(&self) -> ${3:f32}
 }
 endsnippet
 
-
-
-
 ############################################################################
 #					SCAD things
 ############################################################################
@@ -234,4 +260,20 @@ pub fn main()
     sfile.write_to_file(String::from("out.scad"));
 }
 endsnippet
+=======
+snippet set
+$1: $1,
+endsnippet
+
+
+############################################################################
+#					Block comments
+############################################################################
+snippet doc "Doc-comment" b
+/**
+  $1
+*/
+endsnippet
+
+
 # vim:ft=snippets:

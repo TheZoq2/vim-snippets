@@ -47,7 +47,8 @@ for (var ${2:i} = ${1:Things.length} - 1; $2 >= 0; $2--) {
 endsnippet
 
 snippet fun "function (fun)"
-function ${1:function_name}(${2:argument}) {
+function ${1:function_name}(${2}) 
+{
 	${VISUAL}$0
 }
 endsnippet
@@ -160,6 +161,11 @@ endsnippet
 
 snippet req "require an AMD module"
 require([${1:'dependencies'}], ${2:callback});
+endsnippet
+
+
+snippet elid "get element by id"
+document.getElementById($1)
 endsnippet
 
 # vim:ft=snippets:

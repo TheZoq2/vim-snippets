@@ -303,4 +303,14 @@ snippet movie "Embed QT movie (movie)" b
 	`!p x(snip)`>
 </object>
 endsnippet
+
+################################################
+#			General HTML snippets
+################################################
+snippet tt "Tag" bA
+<${1:div}>
+	${2}
+</${1/^(\w*).*/$1/}>
+endsnippet
+
 # vim:ft=snippets:

@@ -6,6 +6,23 @@ extends c
 priority -49
 
 ###########################################################################
+#					Loops and branches
+###########################################################################
+snippet for "for loop"
+for(${4:size_t} ${5:i} = ${3:0}; $5 < $1; ++$5)
+{
+	$2
+}
+endsnippet
+
+snippet forin "foreach" 
+for(auto ${3:it} : ${1:list})
+{
+	$2
+}
+endsnippet
+
+###########################################################################
 #                            TextMate Snippets                            #
 ###########################################################################
 snippet beginend "$1.begin(), $1.end() (beginend)"
@@ -82,6 +99,18 @@ ${4:void} ${5:`!p snip.rv = snip.basename or "name"`}<$6>::${1:func}(${2:param})
 {
 	$3
 }
+endsnippet
+
+
+snippet mem
+${3:void} ${5:`!p snip.rv = snip.basename or "name"`}::$1($2)
+{
+	$4
+}
+endsnippet
+
+snippet thiss "Set a 'this->' variable" 
+this->$1 = $1;
 endsnippet
 
 # vim:ft=snippets:
