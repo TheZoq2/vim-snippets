@@ -213,4 +213,25 @@ pub fn get_$2(&self) -> ${3:f32}
 }
 endsnippet
 
+
+
+
+############################################################################
+#					SCAD things
+############################################################################
+snippet newscad "Template for a new  scad project" b
+#[macro_use]
+extern crate scad_generator;
+
+use scad_generator::*;
+
+pub fn main()
+{
+    let mut sfile = ScadFile::new();
+
+    sfile.set_detail(50);
+
+    sfile.write_to_file(String::from("out.scad"));
+}
+endsnippet
 # vim:ft=snippets:
