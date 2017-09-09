@@ -5,8 +5,7 @@
 priority -50
 
 snippet main "main function"
-pub fn main()
-{
+pub fn main() {
 	$1
 }
 endsnippet
@@ -20,22 +19,19 @@ let mut ${1:name}${2:: ${3:type}} = ${4};
 endsnippet
 
 snippet fn "A function, optionally with arguments and return type."
-fn ${1:function_name}(${2})${3/..*/ -> /}${3}
-{
+fn ${1:function_name}(${2})${3/..*/ -> /}${3} {
 	${VISUAL}${0}
 }
 endsnippet
 
 snippet pfn "A public function, optionally with arguments and return type."
-pub fn ${1:function_name}(${2})${3/..*/ -> /}${3}
-{
+pub fn ${1:function_name}(${2})${3/..*/ -> /}${3} {
 	${VISUAL}${0}
 }
 endsnippet
 
 snippet pmem "A public function, optionally with arguments and return type."
-pub fn ${1:function_name}(${2}self${3/..*/, /}${3})${4/..*/ -> /}${4}
-{
+pub fn ${1:function_name}(${2}self${3/..*/, /}${3})${4/..*/ -> /}${4} {
 	${VISUAL}${0}
 }
 endsnippet
@@ -49,8 +45,7 @@ ${1:move }|${2}| { $3 }
 endsnippet
 
 snippet |} "Closure, anonymous function (block)" i
-${1:move }|${2}|
-{
+${1:move }|${2}| {
 	$3
 }
 endsnippet
@@ -76,15 +71,13 @@ macro_rules! ${1:name} (
 endsnippet
 
 snippet mod "A module" b
-mod ${1:`!p snip.rv = snip.basename.lower() or "name"`}
-{
+mod ${1:`!p snip.rv = snip.basename.lower() or "name"`} {
 	${VISUAL}${0}
 }
 endsnippet
 
 snippet for "for .. in .." b
-for ${1:i} in ${2}
-{
+for ${1:i} in ${2} {
 	${VISUAL}${0}
 }
 endsnippet
@@ -94,8 +87,7 @@ snippet todo "A Todo comment"
 endsnippet
 
 snippet if "if statement" b
-if ${1}
-{
+if ${1} {
 	$2
 }
 endsnippet
@@ -105,8 +97,7 @@ const ${1:var}: ${2:i32} = ${3:0};
 endsnippet
 
 snippet match "match statmenet"
-match $1
-{
+match $1 {
 	$2
 }
 endsnippet
@@ -117,8 +108,7 @@ endsnippet
 
 snippet testmod "A test module"
 #[cfg(test)]
-mod ${1:tests}
-{
+mod ${1:tests} {
 	${2}
 }
 endsnippet
@@ -128,8 +118,7 @@ endsnippet
 
 snippet test "A test function"
 #[test]
-fn ${1:test_name}()
-{
+fn ${1:test_name}() {
 	${2}
 }
 endsnippet
@@ -139,30 +128,25 @@ endsnippet
 ############################################################################
 
 snippet struct "Struct" b
-struct ${1:`!p snip.rv = snip.basename.title() or "Name"`}
-{
+struct ${1:`!p snip.rv = snip.basename.title() or "Name"`} {
 	${VISUAL}${0}
 }
 endsnippet
 
 snippet pstruct "Struct" b
-pub struct ${1:`!p snip.rv = snip.basename.title() or "Name"`}
-{
+pub struct ${1:`!p snip.rv = snip.basename.title() or "Name"`} {
 	${VISUAL}${0}
 }
 endsnippet
 
 # TODO: fancy dynamic field mirroring like Python slotclass
 snippet structn "Struct with new constructor." b
-pub struct ${1:`!p snip.rv = snip.basename.title() or "Name"`}
-{
+pub struct ${1:`!p snip.rv = snip.basename.title() or "Name"`} {
 	fd${0}
 }
 
-impl $1
-{
-	pub fn new(${2}) -> $1
-	{
+impl $1 {
+	pub fn new(${2}) -> $1 {
 		$1 { ${3} };
 	}
 }
@@ -173,8 +157,7 @@ ${1:name}: ${2:Type},
 endsnippet
 
 snippet impl "Struct/Trait implementation" b
-impl ${2:type}${2/..*/ for /}${1}
-{
+impl ${2:type}${2/..*/ for /}${1} {
 	${0}
 }
 endsnippet
@@ -182,8 +165,7 @@ endsnippet
 
 
 snippet new "Constructor function"
-pub fn new(${2}) -> ${1:Name}
-{
+pub fn new(${2}) -> ${1:Name} {
 	$1 {
 		${3}
 	}
@@ -191,8 +173,7 @@ pub fn new(${2}) -> ${1:Name}
 endsnippet
 
 snippet trait "Trait defenition"
-trait ${1:Name}
-{
+trait ${1:Name} {
 	${0}
 }
 endsnippet
@@ -214,8 +195,7 @@ pub fn set_`!p
 if t[2] != '':
 	snip.rv = (''.join(s[0].lower() + s[1:] for s in t[2].split(' ')));
 else:
-	snip.rv = ''`(&mut self, ${2:var}: ${3})
-{
+	snip.rv = ''`(&mut self, ${2:var}: ${3}) {
 	self.$2 = $2;
 }
 endsnippet
@@ -224,20 +204,17 @@ pub fn get_`!p
 if t[2] != '':
 	snip.rv = (''.join(s[0].lower() + s[1:] for s in t[2].split(' ')));
 else:
-	snip.rv = ''`(&self) -> ${1:f32}
-{
+	snip.rv = ''`(&self) -> ${1:f32} {
 	return self.${2};
 }
 endsnippet
 
 snippet msget "getter and setter"
-pub fn set_${2:var}(&mut self, $2: $3)
-{
+pub fn set_${2:var}(&mut self, $2: $3) {
 	self.$2 = $2;
 }
 
-pub fn get_$2(&self) -> ${3:f32}
-{
+pub fn get_$2(&self) -> ${3:f32} {
 	return self.$2;
 }
 endsnippet
@@ -251,13 +228,12 @@ extern crate scad_generator;
 
 use scad_generator::*;
 
-pub fn main()
-{
-    let mut sfile = ScadFile::new();
+pub fn main() {
+	let mut sfile = ScadFile::new();
 
-    sfile.set_detail(50);
+	sfile.set_detail(50);
 
-    sfile.write_to_file(String::from("out.scad"));
+	sfile.write_to_file(String::from("out.scad"));
 }
 endsnippet
 
