@@ -146,8 +146,7 @@ pub struct ${1:`!p snip.rv = snip.basename.title() or "Name"`} {
 }
 
 impl $1 {
-	pub fn new(${2}) -> $1
-	{
+	pub fn new(${2}) -> $1 {
 		$1 { ${3} };
 	}
 }
@@ -230,11 +229,11 @@ extern crate scad_generator;
 use scad_generator::*;
 
 pub fn main() {
-    let mut sfile = ScadFile::new();
+	let mut sfile = ScadFile::new();
 
-    sfile.set_detail(50);
+	sfile.set_detail(50);
 
-    sfile.write_to_file(String::from("out.scad"));
+	sfile.write_to_file(String::from("out.scad"));
 }
 endsnippet
 
