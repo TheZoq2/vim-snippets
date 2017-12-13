@@ -23,4 +23,9 @@ snippet doc "Documentation comment"
 -}
 endsnippet
 
-
+snippet pln "print" b
+_ = Debug.log "$1" $2
+endsnippet
+snippet dbg "debug print" b
+_ = Debug.log "$1" $1
+endsnippet
