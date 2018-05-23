@@ -58,6 +58,10 @@ snippet pln "println!(..)" b
 println!("${1}"${2/..*/, /}${2});
 endsnippet
 
+snippet dbg "println!(..)" b
+println!("{:#?}", ${1});
+endsnippet
+
 snippet fmt "format!(..)"
 format!("${1}"${2/..*/, /}${2});
 endsnippet
