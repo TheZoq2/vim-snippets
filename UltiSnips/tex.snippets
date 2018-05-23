@@ -72,24 +72,15 @@ ${0}
 endsnippet
 
 snippet sec "Section" b
-\section{${1:section name}}
-\label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
-
-${0}
+\section{${1:section name}}${0}
 endsnippet
 
 snippet sub "Subsection" b
-\subsection{${1:subsection name}}
-\label{sub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
-
-${0}
+\subsection{${1:subsection name}}${0}
 endsnippet
 
 snippet ssub "Subsubsection" b
-\subsubsection{${1:subsubsection name}}
-\label{ssub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
-
-${0}
+\subsubsection{${1:subsubsection name}}${0}
 endsnippet
 
 snippet par "Paragraph" b
@@ -101,8 +92,6 @@ endsnippet
 
 snippet subp "Subparagraph" b
 \subparagraph{${1:subparagraph name}}
-\label{par:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
-
 ${0}
 endsnippet
 
@@ -171,4 +160,14 @@ snippet code "Code snippet"
 \begin{lstlisting}[language=$1]
 $2
 \end{lstlisting}
+endsnippet
+
+snippet t "Tag"
+\begin{$1}
+	$2
+\end{$1}
+endsnippet
+
+snippet \ "single tag"
+\\$1{$2}$3
 endsnippet
