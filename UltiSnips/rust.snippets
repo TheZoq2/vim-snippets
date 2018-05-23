@@ -160,19 +160,23 @@ snippet fd "Struct field definition" w
 ${1:name}: ${2:Type},
 endsnippet
 
-snippet impl "Struct/Trait implementation" b
-impl ${2:type}${2/..*/ for /}${1} {
-	${0}
+snippet impl "implementation"
+impl ${1:Type} {
+	${2}
+}
+endsnippet
+
+snippet imptr "implementation trait"
+impl ${1:Trait} for ${2:Type} {
+	${3}
 }
 endsnippet
 
 
 
 snippet new "Constructor function"
-pub fn new(${2}) -> ${1:Name} {
-	$1 {
-		${3}
-	}
+pub fn new(${2}) -> Self {
+	Self {${3}}
 }
 endsnippet
 

@@ -704,4 +704,9 @@ snippet mget
 def get`!p snip.rv = ''.join(s[0].upper() + s[1:] for s in t[1].split(' ')) if t[1] != '' else ""`(self):
 	return self.${1:var}
 endsnippet
+
+
+snippet dbg "Debug print" b
+print("$1: {}".format($1))
+endsnippet
 # vim:ft=snippets:
