@@ -53,7 +53,7 @@ snippet desc "Description" b
 endsnippet
 
 snippet it "Individual item" b
-\item ${1}
+\item{${1}}
 $0
 endsnippet
 
@@ -171,3 +171,16 @@ endsnippet
 snippet \ "single tag"
 \\$1{$2}$3
 endsnippet
+
+
+
+# tikzstuff
+
+snippet tnode "Tikz node" b
+\node[${1:shape}${2:, ${3:below} = ${7}of ${4:node}}] ($5) {${6:text}};
+endsnippet
+
+snippet tpath "Tikz path" b
+\path[${6:line}] ($1) -- ($2);
+endsnippet
+
